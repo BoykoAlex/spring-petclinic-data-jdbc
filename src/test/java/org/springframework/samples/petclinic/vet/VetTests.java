@@ -27,6 +27,7 @@ import org.springframework.util.SerializationUtils;
 public class VetTests {
 
 	@Test
+	@SuppressWarnings("deprecation")
 	public void testSerialization() {
 		var vet = new Vet();
 		vet.setFirstName("Zaphod");

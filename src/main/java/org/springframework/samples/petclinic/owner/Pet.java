@@ -38,11 +38,9 @@ public class Pet {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate birthDate;
 
-	@Column("type_id")
-	private Integer type;
+	private Integer typeId;
 
-	@Column("owner_id")
-	private Integer owner;
+	private Integer ownerId;
 
 	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
@@ -52,20 +50,20 @@ public class Pet {
 		return this.birthDate;
 	}
 
-	public Integer getType() {
-		return this.type;
+	public Integer getTypeId() {
+		return this.typeId;
 	}
 
-	public void setType(Integer type) {
-		this.type = type;
+	public void setTypeId(Integer typeId) {
+		this.typeId = typeId;
 	}
 
-	public Integer getOwner() {
-		return this.owner;
+	public Integer getOwnerId() {
+		return this.ownerId;
 	}
 
 	public void setOwner(Owner owner) {
-		this.owner = owner.getId();
+		this.ownerId = owner.getId();
 	}
 
 	public boolean isNew() {
@@ -90,7 +88,7 @@ public class Pet {
 
 	@Override
 	public String toString() {
-		return "Pet{" + "id=" + id + ", name='" + name + '\'' + ", birthDate=" + birthDate + ", type=" + type + ", owner="
-				+ owner + '}';
+		return "Pet{" + "id=" + id + ", name='" + name + '\'' + ", birthDate=" + birthDate + ", typeId=" + typeId
+				+ ", ownerId=" + ownerId + '}';
 	}
 }

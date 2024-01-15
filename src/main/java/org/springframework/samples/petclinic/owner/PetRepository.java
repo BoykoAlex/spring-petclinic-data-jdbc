@@ -36,7 +36,7 @@ public interface PetRepository extends Repository<Pet, Integer> {
 
 	/**
 	 * Retrieve all {@link PetType}s from the data store.
-	 * 
+	 *
 	 * @return a Collection of {@link PetType}s.
 	 */
 	@Query("select * from pet_type order by name")
@@ -48,7 +48,7 @@ public interface PetRepository extends Repository<Pet, Integer> {
 
 	/**
 	 * Retrieve a {@link Pet} from the data store by id.
-	 * 
+	 *
 	 * @param id the id to search for
 	 * @return the {@link Pet} if found
 	 */
@@ -57,10 +57,10 @@ public interface PetRepository extends Repository<Pet, Integer> {
 
 	/**
 	 * Save a {@link Pet} to the data store, either inserting or updating it.
-	 * 
+	 *
 	 * @param pet the {@link Pet} to save
 	 */
-	void save(Pet pet);
+	Pet save(Pet pet);
 
 	@Query("select * from pet where owner_id = :ownerId and name = :name")
 	List<Pet> findByOwnerIdAndName(@Param("ownerId") Integer ownerId, @Param("name") String name);

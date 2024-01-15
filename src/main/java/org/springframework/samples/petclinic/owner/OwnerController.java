@@ -136,8 +136,8 @@ class OwnerController {
 		var mav = new ModelAndView("owners/ownerDetails");
 		mav.addObject(this.owners.findById(ownerId));
 		mav.addObject("pets",
-				this.pets.findByOwnerId(ownerId).stream()
-						.map(pet -> new PetDetails(pet, this.pets.findPetType(pet.getType()), this.visits.findByPetId(pet.getId())))
+				this.pets.findByOwnerId(ownerId).stream().map(
+						pet -> new PetDetails(pet, this.pets.findPetType(pet.getTypeId()), this.visits.findByPetId(pet.getId())))
 						.collect(Collectors.toList()));
 		return mav;
 	}

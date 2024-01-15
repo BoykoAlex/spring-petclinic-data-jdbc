@@ -44,22 +44,22 @@
                       </a>
                   </li>
   
-                  <li th:replace="::menuItem ('/','home','home page','home','Home')">
+                  <li th:replace="~{::menuItem ('/','home','home page','home','Home')}">
                       <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                       <span>Home</span>
                   </li>
   
-                  <li th:replace="::menuItem ('/owners/find','owners','find owners','search','Find owners')">
+                  <li th:replace="~{::menuItem ('/owners/find','owners','find owners','search','Find owners')}">
                       <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                       <span>Find owners</span>
                   </li>
   
-                  <li th:replace="::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')">
+                  <li th:replace="~{::menuItem ('/vets.html','vets','veterinarians','th-list','Veterinarians')}">
                       <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                       <span>Veterinarians</span>
                   </li>
   
-                  <li th:replace="::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','warning-sign','Error')">
+                  <li th:replace="~{::menuItem ('/oups','error','trigger a RuntimeException to see how it is handled','warning-sign','Error')}">
                       <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
                       <span>Error</span>
                   </li>
@@ -71,15 +71,14 @@
   <div class="container-fluid">
       <div class="container xd-container">
   
-          <th:block th:include="${template}"/>
+          <th:block th:insert="${template}"/>
 
         <br/>
         <br/>
         <div class="container">
           <div class="row">
             <div class="col-12 text-center">
-              <img src="../static/resources/images/spring-pivotal-logo.png" th:src="@{/resources/images/spring-pivotal-logo.png}"
-                alt="Sponsored by Pivotal"/></div>
+              <img th:src="@{/resources/images/spring-logo.png}" alt="Sponsored by VMware Tanzu"/></div>
           </div>
         </div>
       </div>

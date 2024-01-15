@@ -22,43 +22,21 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.samples.petclinic.owner.*;
-import org.springframework.samples.petclinic.vet.SpecialtyRef;
+import org.springframework.samples.petclinic.owner.Owner;
+import org.springframework.samples.petclinic.owner.OwnerRepository;
+import org.springframework.samples.petclinic.owner.Pet;
+import org.springframework.samples.petclinic.owner.PetRepository;
+import org.springframework.samples.petclinic.owner.PetType;
 import org.springframework.samples.petclinic.vet.Vet;
 import org.springframework.samples.petclinic.vet.VetRepository;
+import org.springframework.samples.petclinic.vet.VetSpecialty;
 import org.springframework.samples.petclinic.visit.Visit;
 import org.springframework.samples.petclinic.visit.VisitRepository;
-import org.springframework.stereotype.Service;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Integration test of the Service and the Repository layer.
- * <p>
- * ClinicServiceSpringDataJpaTests subclasses benefit from the following services provided by the Spring TestContext
- * Framework:
- * </p>
- * <ul>
- * <li><strong>Spring IoC container caching</strong> which spares us unnecessary set up time between test
- * execution.</li>
- * <li><strong>Dependency Injection</strong> of test fixture instances, meaning that we don't need to perform
- * application context lookups. See the use of {@link Autowired @Autowired} on the <code>{@link
- * ClinicServiceTests#clinicService clinicService}</code> instance variable, which uses autowiring <em>by type</em>.
- * <li><strong>Transaction management</strong>, meaning each test method is executed in its own transaction, which is
- * automatically rolled back by default. Thus, even if tests insert or otherwise change database state, there is no need
- * for a teardown or cleanup script.
- * <li>An {@link org.springframework.context.ApplicationContext ApplicationContext} is also inherited and can be used
- * for explicit bean lookup if necessary.</li>
- * </ul>
- *
- * @author Ken Krebs
- * @author Rod Johnson
- * @author Juergen Hoeller
- * @author Sam Brannen
- * @author Michael Isvy
- * @author Dave Syer
- */
-@DataJdbcTest(includeFilters = @ComponentScan.Filter(Service.class))
+@DataJdbcTest
+@ActiveProfiles("h2")
 public class ClinicServiceTests {
 
 	@Autowired
@@ -143,7 +121,7 @@ public class ClinicServiceTests {
 
 		Pet pet = new Pet();
 		pet.setName("bowser");
-		pet.setType(2);
+		pet.setTypeId(2);
 		pet.setOwner(owner6);
 		this.pets.save(pet);
 		// checks that id has been generated
@@ -172,7 +150,8 @@ public class ClinicServiceTests {
 
 		assertThat(vet.getLastName()).isEqualTo("Douglas");
 		assertThat(vet.getNrOfSpecialties()).isEqualTo(2);
-		assertThat(vet.getSpecialties()).containsExactlyInAnyOrder(new SpecialtyRef(3L), new SpecialtyRef(2L));
+		assertThat(vet.getSpecialties()).containsExactlyInAnyOrder(new VetSpecialty(3L, vet.getId()),
+				new VetSpecialty(2L, vet.getId()));
 	}
 
 	@Test
