@@ -26,9 +26,17 @@ import java.util.List;
  */
 public class Vets {
 
-    public List<VetDto> vets;
+    private List<VetDto> vets;
 
     public Vets(List<VetDto> vets) {
+        this.vets = vets;
+    }
+
+    public List<VetDto> getVets() {
+        return vets;
+    }
+
+    public void setVets(List<VetDto> vets) {
         this.vets = vets;
     }
 }

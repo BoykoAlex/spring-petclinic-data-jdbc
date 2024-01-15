@@ -47,14 +47,14 @@ public class PetTypeFormatter implements Formatter<PetType> {
 
 	@Override
 	public String print(PetType petType, Locale locale) {
-		return petType.name;
+		return petType.getName();
 	}
 
 	@Override
 	public PetType parse(String text, Locale locale) throws ParseException {
 		Collection<PetType> findPetTypes = this.pets.findPetTypes();
 		for (PetType type : findPetTypes) {
-			if (type.name.equals(text)) {
+			if (type.getName().equals(text)) {
 				return type;
 			}
 		}

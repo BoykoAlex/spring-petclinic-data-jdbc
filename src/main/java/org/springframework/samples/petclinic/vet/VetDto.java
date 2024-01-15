@@ -22,11 +22,11 @@ import java.util.List;
  */
 public class VetDto {
 
-    public Long id;
+    private Long id;
 
-    public String firstName;
+    private String firstName;
 
-    public String lastName;
+    private String lastName;
 
     public List<Specialty> specialties;
 
@@ -34,6 +34,38 @@ public class VetDto {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.specialties = specialties;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public List<Specialty> getSpecialties() {
+        return specialties;
+    }
+
+    public void setSpecialties(List<Specialty> specialties) {
         this.specialties = specialties;
     }
 

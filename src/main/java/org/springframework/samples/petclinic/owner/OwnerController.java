@@ -143,23 +143,63 @@ class OwnerController {
 	}
 
 	static class OwnerDetails {
-        public Owner owner;
-        public List<Pet> pets;
+        private Owner owner;
+        private List<Pet> pets;
 
         public OwnerDetails(Owner owner, List<Pet> pets) {
             this.owner = owner;
             this.pets = pets;
         }
+
+        public Owner getOwner() {
+            return owner;
+        }
+
+        public void setOwner(Owner owner) {
+            this.owner = owner;
+        }
+
+        public List<Pet> getPets() {
+            return pets;
+        }
+
+        public void setPets(List<Pet> pets) {
+            this.pets = pets;
+        }
     }
 
 	static class PetDetails {
-        public Pet pet;
-        public PetType type;
-        public List<Visit> visits;
+        private Pet pet;
+        private PetType type;
+        private List<Visit> visits;
 
         public PetDetails(Pet pet, PetType type, List<Visit> visits) {
             this.pet = pet;
             this.type = type;
+            this.visits = visits;
+        }
+
+        public Pet getPet() {
+            return pet;
+        }
+
+        public void setPet(Pet pet) {
+            this.pet = pet;
+        }
+
+        public PetType getType() {
+            return type;
+        }
+
+        public void setType(PetType type) {
+            this.type = type;
+        }
+
+        public List<Visit> getVisits() {
+            return visits;
+        }
+
+        public void setVisits(List<Visit> visits) {
             this.visits = visits;
         }
     }

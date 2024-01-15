@@ -21,11 +21,27 @@ package org.springframework.samples.petclinic.vet;
  * @author Maciej Walkowiak
  */
 public class VetSpecialty {
-    public Long specialty;
-    public Long vet;
+    private Long specialty;
+    private Long vet;
 
     public VetSpecialty(Long specialty, Long vet) {
         this.specialty = specialty;
+        this.vet = vet;
+    }
+
+    public Long getSpecialty() {
+        return specialty;
+    }
+
+    public void setSpecialty(Long specialty) {
+        this.specialty = specialty;
+    }
+
+    public Long getVet() {
+        return vet;
+    }
+
+    public void setVet(Long vet) {
         this.vet = vet;
     }
 }
