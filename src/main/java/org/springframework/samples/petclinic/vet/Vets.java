@@ -24,5 +24,11 @@ import java.util.List;
  * @author Arjen Poutsma
  * @author Maciej Walkowiak
  */
-public record Vets(List<VetDto> vets) {
+public class Vets {
+
+    public List<VetDto> vets;
+
+    public Vets(List<VetDto> vets) {
+        this.vets = vets;
+    }
 }

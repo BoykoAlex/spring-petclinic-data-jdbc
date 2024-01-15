@@ -20,9 +20,24 @@ import java.util.List;
 /**
  * @author Maciej Walkowiak
  */
-public record VetDto(Long id, String firstName, String lastName, List<Specialty> specialties) {
+public class VetDto {
 
-	public int getNrOfSpecialties() {
+    public Long id;
+
+    public String firstName;
+
+    public String lastName;
+
+    public List<Specialty> specialties;
+
+    public VetDto(Long id, String firstName, String lastName, List<Specialty> specialties) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.specialties = specialties;
+    }
+
+    public int getNrOfSpecialties() {
 		return specialties.size();
 	}
 }

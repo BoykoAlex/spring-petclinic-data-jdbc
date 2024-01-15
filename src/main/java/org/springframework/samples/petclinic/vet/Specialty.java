@@ -23,5 +23,14 @@ import org.springframework.data.annotation.Id;
  * @author Juergen Hoeller
  * @author Maciej Walkowiak
  */
-public record Specialty(@Id Long id, String name) {
+public class Specialty {
+
+    @Id public Long id;
+
+    public String name;
+
+    public Specialty(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

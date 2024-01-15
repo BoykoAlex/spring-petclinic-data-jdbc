@@ -65,7 +65,7 @@ public class Vet implements Serializable {
 	}
 
 	public void addSpecialty(Specialty specialty) {
-		getSpecialtiesInternal().add(new VetSpecialty(specialty.id(), id));
+		getSpecialtiesInternal().add(new VetSpecialty(specialty.id, id));
 	}
 
 	public Long getId() {

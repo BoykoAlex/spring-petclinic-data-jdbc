@@ -23,5 +23,14 @@ import org.springframework.data.annotation.Id;
  * @author Juergen Hoeller
  * @author Maciej Walkowiak
  */
-public record PetType(@Id Integer id, String name) {
+public class PetType {
+
+    @Id public Integer id;
+
+    public String name;
+
+    public PetType(Integer id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

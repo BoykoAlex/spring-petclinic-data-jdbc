@@ -98,7 +98,7 @@ class OwnerController {
 			return "owners/findOwners";
 		} else if (results.size() == 1) {
 			// 1 owner found
-			owner = results.iterator().next().owner();
+			owner = results.iterator().next().owner;
 			return "redirect:/owners/" + owner.getId();
 		} else {
 			// multiple owners found
@@ -142,10 +142,26 @@ class OwnerController {
 		return mav;
 	}
 
-	static record OwnerDetails(Owner owner, List<Pet> pets) {
-	}
+	static class OwnerDetails {
+        public Owner owner;
+        public List<Pet> pets;
 
-	static record PetDetails(Pet pet, PetType type, List<Visit> visits) {
-	}
+        public OwnerDetails(Owner owner, List<Pet> pets) {
+            this.owner = owner;
+            this.pets = pets;
+        }
+    }
+
+	static class PetDetails {
+        public Pet pet;
+        public PetType type;
+        public List<Visit> visits;
+
+        public PetDetails(Pet pet, PetType type, List<Visit> visits) {
+            this.pet = pet;
+            this.type = type;
+            this.visits = visits;
+        }
+    }
 
 }
