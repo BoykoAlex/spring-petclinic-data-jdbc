@@ -30,7 +30,7 @@ public class Visit {
 	private Long id;
 
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column("VISIT_DATE")
+	@Column("visit_date")
 	private LocalDate date;
 
 	@NotEmpty
